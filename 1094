@@ -1,0 +1,41 @@
+#include <stdio.h>
+#define TAM 15
+
+struct test{  //  struct test, capta amount e type;
+  int amount;
+  char type;
+};
+
+int main(){
+    char type; 
+    int amount=0,i=0,tam1=0,t_rabbit=0,t_frog=0,t_mouse=0,t_cobaias=0;
+    float p_rabbit,p_frog,p_mouse;
+    
+    scanf("%d",&tam1);
+    
+    struct test x[tam1];
+    
+    for(i=0; i<tam1; i++){
+        setbuf(stdin,NULL);
+        scanf("%d %c",&x[i].amount,&x[i].type);
+    }    
+    
+    for(i=0; i<tam1; i++){
+      t_cobaias += x[i].amount;
+      
+      if(x[i].type == 'R'){
+          t_mouse += x[i].amount; 
+      }
+      if(x[i].type == 'S'){
+          t_frog += x[i].amount; 
+      }
+      if(x[i].type == 'C'){
+          t_rabbit +=  x[i].amount; 
+      }
+    }  
+    p_rabbit = (t_rabbit*100) / t_cobaias;
+    p_frog = (t_frog*100) / t_cobaias;
+    p_mouse = (t_mouse*100) / t_cobaias;
+    printf("Total: %d\nTotal de coelhos: %d\nTotal de ratos: %d\nTotal de sapos: %d\nPercentual de coelhos: %f\nPercentual de ratos: %f\nPercentual de sapos: %f\n",t_cobaias,t_rabbit,t_mouse,t_frog,p_rabbit,p_mouse,p_frog);
+    return 0;
+}
